@@ -1,0 +1,21 @@
+<h4> Warehouse Information </h4>
+<table class="table table-bordered">
+    <thead>
+       <tr>
+            <th>Product Id</th>
+            <th>Warehouse id</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+</table>
+
+<tbody>
+        {{#each info}}
+            <tr>
+                <td>{{productId}}</td>
+                <td>{{warehouseId}}</td>
+                <td>{{quantity}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
