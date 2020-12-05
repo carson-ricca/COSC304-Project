@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
             }
 
             res.write('"<h2>Database loading complete!</h2>');
-            res.end()
+            res.end();
         } catch(err) {
             console.dir(err);
             res.write(err);
