@@ -1,4 +1,4 @@
-USE tempdb
+USE d86z63czwh261eo
 
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS shipment;
