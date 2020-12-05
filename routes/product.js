@@ -113,7 +113,13 @@ router.get('/:id/edit', function (req, res, next) {
             const product = (await pool.request()
                 .input('productId', sql.Int, productId)
                 .query(
-                        `SELECT product.productId, quantity, productPrice, productName, productDesc, warehouseId, categoryId
+                        `SELECT product.productId,
+                                quantity,
+                                productPrice,
+                                productName,
+                                productDesc,
+                                warehouseId,
+                                categoryId
                          FROM product
                                   INNER JOIN productinventory ON product.productId = productinventory.productId
                          WHERE product.productId = @productId`
@@ -173,6 +179,39 @@ router.post('/:id/edit', function (req, res, next) {
             res.render('message', {
                 type: 'success',
                 message: 'Product Added Successfully',
+            });
+        } catch (err) {
+            console.dir(err);
+            res.render('message', {
+                type: 'danger',
+                message: err,
+            })
+        }
+    })();
+});
+
+router.get('/:id/delete', function (req, res, next) {
+    (async function f() {
+        try {
+            const productId = req.params.id;
+
+            let pool = await sql.connect(dbConfig);
+            await pool.request()
+                .input('productId', sql.Int, productId)
+                .query(`DELETE
+                        FROM productinventory
+                        WHERE productId = @productID
+                `);
+            await pool.request()
+                .input('productId', sql.Int, productId)
+                .query(
+                        `DELETE
+                         FROM product
+                         WHERE productId = @productId
+                    `);
+            res.render('message', {
+                type: 'success',
+                message: 'Product Deleted Successfully',
             });
         } catch (err) {
             console.dir(err);

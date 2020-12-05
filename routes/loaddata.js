@@ -21,11 +21,12 @@ router.get('/', function(req, res, next) {
                 res.write('<p>' + JSON.stringify(result) + '</p>')
             }
 
-            res.write('"<h2>Database loading complete!</h2>')
+            res.write('"<h2>Database loading complete!</h2>');
             res.end()
         } catch(err) {
             console.dir(err);
-            res.send(err)
+            res.write(err);
+            res.end();
         }
     })();
 });

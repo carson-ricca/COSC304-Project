@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <title>{{title}}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Electric Lettuce</a>
+        <nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><i class="fas fa-cannabis"></i> Electric Lettuce</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,20 +26,20 @@
                         <a class="nav-link" href="/listprod">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/listorder">Orders</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/showcart">Shopping&nbspCart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/checkout">Checkout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                        <a class="nav-link" href="/admin">Admin</a>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="/warehouse">Warehouses</a>
-                    </li>
+                        <a class = "nav-link" href="/register"><i class="fas fa-user-circle"></i> Register</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                 </ul>
             </div>
         </nav>

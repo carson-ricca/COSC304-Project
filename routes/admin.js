@@ -11,9 +11,20 @@ router.get('/', function(req, res, next) {
                 let pool = await sql.connect(dbConfig);
                 let result = await pool.request()
                     .query(query);
+
+                const sales = result.recordset;
+                let chartLabels = [];
+                let chartData = [];
+                for(let i = 0; i < sales.length; i++){
+                    chartLabels.push(sales[i].dateOrdered);
+                    chartData.push(sales[i].totalAmountEarned);
+                }
+
                 res.render('admin', {
                     title: 'Admin Sales Report',
-                    sales: result.recordset
+                    sales: sales,
+                    chartLabels: JSON.stringify(chartLabels),
+                    chartData: JSON.stringify(chartData),
                 });
             } catch(err) {
                 console.dir(err);

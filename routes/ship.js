@@ -29,13 +29,15 @@ router.get('/', function (req, res, next) {
                         .input('date', sql.Date, new Date(Date.now()))
                         .query(`INSERT INTO shipment (shipmentDate, shipmentDesc, warehouseId) VALUES (@date, '', 1)`);
 
+                    await tx.request()
+                        .input('orderId', sql.Int, orderId)
+                        .query(`UPDATE ordersummary SET shipped = 'true' WHERE orderId = @orderId`);
+
                     let results = await tx.request()
                         .input('orderId', sql.Int, orderId)
                         .query(`SELECT * FROM orderproduct WHERE orderId = @orderId`);
 
                     const products = results.recordset;
-
-                    console.dir(products);
 
                     for(let i = 0; i < products.length; i++) {
                         let results = await tx.request()

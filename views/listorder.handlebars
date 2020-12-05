@@ -6,6 +6,8 @@
         <th>Customer Id</th>
         <th>Customer Name</th>
         <th>Total Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -16,6 +18,10 @@
             <td> {{customerId}}</td>
             <td> {{firstName}}&nbsp{{lastName}} </td>
             <td> ${{fixed totalAmount 2}} </td>
+            <td>{{#if shipped}}Shipped{{else}}Pending{{/if}}</td>
+            <td>
+                <a class="btn btn-primary {{#if shipped}}disabled{{/if}}" href="/ship?orderId={{orderId}}">Ship</a>
+            </td>
         </tr>
         <tr>
             <th></th>
@@ -31,6 +37,8 @@
                 <td> {{productId}}</td>
                 <td> {{quantity}}</td>
                 <td> {{fixed price 2}}</td>
+                <td></td>
+                <td></td>
             </tr>
         {{/each}}
     {{/each}}

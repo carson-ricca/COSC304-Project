@@ -7,17 +7,19 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <td>#</td>
-        <td class="col">Product&nbspName</td>
-        <td>Price</td>
-        <td>Action</td>
-        <td>Review</td>
+        <th>#</th>
+        <th>Image</th>
+        <th class="col">Product&nbspName</th>
+        <th>Price</th>
+        <th>Action</th>
+        <th>Review</th>
     </tr>
     </thead>
     <tbody>
         {{#each products}}
             <tr>
                 <td>{{addOne @index}}</td>
+                <td><img src="/{{productImageURL}}" alt="image" height="100"/></td>
                 <td>
                     <a href="/product?id={{this.productId}}">{{this.productName}}</a>
                 </td>

@@ -49,6 +49,7 @@ CREATE TABLE ordersummary (
     shiptoState         VARCHAR(20),
     shiptoPostalCode    VARCHAR(20),
     shiptoCountry       VARCHAR(40),
+    shipped             BIT DEFAULT 'false',
     customerId          INT,
     PRIMARY KEY (orderId),
     FOREIGN KEY (customerId) REFERENCES customer(customerid)
@@ -82,7 +83,7 @@ CREATE TABLE orderproduct (
     FOREIGN KEY (orderId) REFERENCES ordersummary(orderId)
         ON UPDATE CASCADE ON DELETE NO ACTION,
     FOREIGN KEY (productId) REFERENCES product(productId)
-        ON UPDATE CASCADE ON DELETE NO ACTION
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE incart (
